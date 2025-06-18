@@ -9203,7 +9203,7 @@ class LinuxInstaller {
         return __awaiter(this, void 0, void 0, function* () {
             core.info("Extracting Firefox...");
             core.info(archive);
-            const ext = archive.endsWith(".tar.bz2") ? "xj" : "xJ";
+            const ext = version === "latest" ? "xJ" : "xj";
             const extPath = yield tc.extractTar(archive, "", [
                 ext,
                 "--strip-components=1",
