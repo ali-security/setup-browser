@@ -9202,8 +9202,9 @@ class LinuxInstaller {
     install(version, archive) {
         return __awaiter(this, void 0, void 0, function* () {
             core.info("Extracting Firefox...");
+            const ext = archive.endsWith(".tar.bz2") ? "xJ" : "xj";
             const extPath = yield tc.extractTar(archive, "", [
-                "xJ",
+                ext,
                 "--strip-components=1",
             ]);
             core.info(`Successfully extracted firefox ${version} to ${extPath}`);
