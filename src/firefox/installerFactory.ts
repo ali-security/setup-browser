@@ -36,7 +36,8 @@ export class LinuxInstaller implements InstallerFactory {
 
   async install(version: string, archive: string): Promise<InstallResult> {
     core.info("Extracting Firefox...");
-    const ext = archive.endsWith(".tar.bz2") ? "xJ" : "xj";
+    core.info(archive);
+    const ext = archive.endsWith(".tar.bz2") ? "xj" : "xJ";
     const extPath = await tc.extractTar(archive, "", [
       ext,
       "--strip-components=1",
